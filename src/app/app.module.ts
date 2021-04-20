@@ -8,8 +8,17 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UpdateBugComponent } from './update-bug/update-bug.component';
 import { GetBugComponent } from './get-bug/get-bug.component';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent }, //default, Home page
+  { path: 'createBug', component: CreateBugComponent },
+  { path: 'getBug', component: GetBugComponent },
+  { path: 'updateBug', component: UpdateBugComponent },
+  { path: 'contactUs', component: ContactUsComponent },
 
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +27,14 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     UpdateBugComponent,
     GetBugComponent,
+    HomeComponent,
+    ContactUsComponent
 
   ],
-  imports: [
+  imports: [RouterModule.forRoot(
+    appRoutes,
+    { enableTracing: true } // <-- debugging purposes only
+  ),
     BrowserModule, HttpClientModule, FormsModule,
 
   ],
