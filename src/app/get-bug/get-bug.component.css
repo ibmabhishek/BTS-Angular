@@ -7,3 +7,11 @@
   }
 }
 
+thead{
+  background-color: #007bff;
+}
+
+thead td{
+  color: white;
+}
+

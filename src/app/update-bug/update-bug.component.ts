@@ -20,7 +20,7 @@ export class UpdateBugComponent implements OnInit {
       priority: (<HTMLInputElement>document.getElementById('priority')).value,
       status: (<HTMLInputElement>document.getElementById('status')).value,
       type: (<HTMLInputElement>document.getElementById('type')).value,
-      submitOnDate: (<HTMLInputElement>document.getElementById('submitOnDate')).valueAsDate,
+      // submitOnDate: (<HTMLInputElement>document.getElementById('submitOnDate')).valueAsDate,
       buildVersion: (<HTMLInputElement>document.getElementById('buildVersion')).value,
       projectId: (<HTMLInputElement>document.getElementById('projectId')).value,
       module: (<HTMLInputElement>document.getElementById('module')).value,
