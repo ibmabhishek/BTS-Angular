@@ -3,3 +3,7 @@
   content:"*";
   color:red;
 }
+
+#titleTd{
+  word-wrap: break-word;
+}
