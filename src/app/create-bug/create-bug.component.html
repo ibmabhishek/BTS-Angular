@@ -136,14 +136,18 @@
 
     <div class="form-group row">
       <label for="colFormLabelLg" class="col-lg-2 col-form-label control-label">ETA</label>
-
       <div class="col-sm-4">
         <input class="custom-select custom-select-md " type="date" id="etaDate" [(ngModel)]="bug.etaDate" name="etaDate"
           required>
       </div>
+
+      <label for="colFormLabelLg" class="col-lg-2 col-form-label control-label">Time Required (In Hours)</label>
+      <div class="col-sm-4">
+        <input class="custom-select custom-select-md " placeholder="Enter Total Number of Hours Required to fix bug"
+          type="number" id="timeRequired" [(ngModel)]="bug.timeRequired" name="timeRequired" required>
+      </div>
+
     </div>
-
-
     <p style="margin-top:30px">
       <span class="required control-label"></span>Required field
     </p>

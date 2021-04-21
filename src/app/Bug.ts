@@ -14,4 +14,5 @@ export class Bug {
   title = '';
   product: string;
   etaDate: Date;
+  timeRequired: number;
 }
