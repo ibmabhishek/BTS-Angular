@@ -72,7 +72,7 @@
           <ng-container *ngFor="let bug of bugList,index as i">
 
             <tr>
-              <td scope="col" style="border: 2px solid #000000;">{{bug.title}}</td>
+              <td scope="col" style="border: 2px solid #000000;">{{(bug.title)}}</td>
               <td scope="col" style="border: 2px solid #000000;">{{bug.description}}</td>
               <td scope="col" style="border: 2px solid #000000;">{{bug.status | titlecase}}</td>
               <td scope="col" style="border: 2px solid #000000;">{{bug.priority | titlecase}}</td>
