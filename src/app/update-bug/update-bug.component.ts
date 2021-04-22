@@ -34,6 +34,9 @@ export class UpdateBugComponent implements OnInit {
         }
       )
     }
+    else {
+      alert('Specify title to fetch bug details !!');
+    }
   }
   updateBug() {
     let updateBug = (<HTMLInputElement>document.getElementById('updateBug'))
