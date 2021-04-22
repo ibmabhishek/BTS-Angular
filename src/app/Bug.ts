@@ -13,6 +13,6 @@ export class Bug {
   description = '';
   title = '';
   product: string;
-  etaDate: Date;
+  etaDate = '';
   timeRequired: number;
 }
