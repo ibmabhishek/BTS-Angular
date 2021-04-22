@@ -39,5 +39,16 @@ export class BugService {
 
   }
 
+  getBugByStatusAndName(endpointURL) {
+    const httpHeaders = new HttpHeaders();
+    httpHeaders.append('content-type', 'application/json');
+    return this.http.get(endpointURL, { headers: httpHeaders });
+  }
+
+  deleteBug(bugId) {
+    const endpointURL = 'http://localhost:8080/bug/' + bugId;
+    return this.http.delete(endpointURL);
+  }
+
 
 }
