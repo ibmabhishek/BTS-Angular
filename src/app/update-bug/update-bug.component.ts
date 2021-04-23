@@ -17,13 +17,24 @@ export class UpdateBugComponent implements OnInit {
     let bugTitle = (<HTMLInputElement>document.getElementById('title')).value;
     if (bugTitle) {
       endpointURL = endpointURL + 'title/' + bugTitle;
-      const promise = this.bugService.getBugByName(endpointURL);
+      const promise = this.bugService.getBugByName(bugTitle);
       promise.subscribe(response => {
         this.bugList = response;
         console.log(this.bugList);
         if (this.bugList) {
           this.bug = this.bugList;
+          let resEtaDate = this.bug.etaDate;
+          let resSubmitDate = this.bugList.submitOn;
+          if (resSubmitDate) {
+            let finalSubmitDate = resSubmitDate.split('T')[0];
+            this.bug.submitOnDate = finalSubmitDate;
+          }
+          if (resEtaDate) {
+            let finalEtaDate = resEtaDate.split('T')[0];
+            this.bug.etaDate = finalEtaDate;
+          }
         }
+
         else {
           alert("Given Bug with title " + bugTitle + " is not available");
         }

@@ -28,7 +28,7 @@ export class GetBugComponent implements OnInit {
   //   }
   // }
   deleteBug(bugId) {
-    let ask = confirm("Really want to delete item : " + bugId);
+    let ask = confirm("Really want to delete item bug ?");
     if (!ask) {
       return;
     }
@@ -106,13 +106,13 @@ export class GetBugComponent implements OnInit {
       if (bugTitle.trim()) {
         const promise = this.bugService.getBugByName(bugTitle);
         promise.subscribe(response => {
-          this.bugList = response;
-          if (this.bugList.length) {
-            this.bugArray = this.bugList;
+          this.bugList = [response];
+          if (response != null) {
+            console.log(response);
+            alert('Bug Listed .....')
           }
           else {
-            alert("Record not found");
-            this.bugArray = [];
+            alert("No Bug with given title exists !");
           }
         },
           error => {
