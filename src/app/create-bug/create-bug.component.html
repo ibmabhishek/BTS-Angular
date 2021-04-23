@@ -44,8 +44,7 @@
         <div class="col">
 
           <select class="form-control" id="priority" [(ngModel)]="bug.priority" name="priority" required>
-            <option disabled selected>Select Priority</option>
-            <option>LOW</option>
+            <option value="LOW">LOW</option>
             <option>MEDIUM</option>
             <option>HIGH</option>
           </select>
@@ -55,9 +54,8 @@
 
         <div class="col">
           <select class="form-control" id="status" [(ngModel)]="bug.status" name="status" required>
-            <!-- <option>Select Option</option> -->
-            <option selected>NEW</option>
-            <option disabled>OPEN</option>
+            <option value="NEW">New</option>
+            <option value="NEW">OPEN</option>
             <option disabled>ASSIGNED</option>
             <option disabled>FIXED</option>
             <option disabled>PENDING_RETEST</option>
