@@ -20,8 +20,9 @@
       </div>
 
       <div class="col-sm-6">
-        <select class="form-control" id="bugStatus" [(ngModel)]="bug.status" name="bugStatus" required>
-          <option selected></option>
+        <select class="form-control" id="bugStatus" [(ngModel)]="bug.status" name="statusBug" required>
+          <option value="" selected hidden>Enter the Bug Status</option>
+          <option></option>
           <option>NEW</option>
           <option>OPEN</option>
           <option>ASSIGNED</option>

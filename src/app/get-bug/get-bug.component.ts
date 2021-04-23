@@ -36,7 +36,7 @@ export class GetBugComponent implements OnInit {
       this.bugList = response;
       console.log(response);
       alert("Bug Deleted!")
-      this.getBugs();
+      //this.getBugs();
     },
       error => {
         console.log(error);
@@ -106,7 +106,7 @@ export class GetBugComponent implements OnInit {
       if (bugTitle.trim()) {
         const promise = this.bugService.getBugByName(bugTitle);
         promise.subscribe(response => {
-          this.bugList = [response];
+          this.bugList = response;
           if (response != null) {
             console.log(response);
             alert('Bug Listed .....')
@@ -168,6 +168,8 @@ export class GetBugComponent implements OnInit {
     }
   }
 
+
+
   getBugs() {
     this.bugService.getBugs().subscribe(response => {
       this.bugList = response;
@@ -190,6 +192,8 @@ export class GetBugComponent implements OnInit {
   //   let bugTitle = (<HTMLInputElement>document.getElementById('bugTitle')).value;
   //   let endpointURL = 'http://localhost:8080/bug/';
   // }
+
+
 
   ngOnInit(): void {
     this.getBugs();
