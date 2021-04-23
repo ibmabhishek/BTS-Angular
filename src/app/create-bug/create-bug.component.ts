@@ -11,9 +11,16 @@ import { Bug } from '../Bug';
 export class CreateBugComponent implements OnInit {
   title: String = 'BugForm';
   bug: Bug = new Bug();
+  todayDate: Date = new Date();
 
 
   constructor(private bugService: BugService) { }
+  etaCheck() {
+    if (this.bug.etaDate <= this.todayDate.toDateString()) {
+      alert('ETA Should not be past date');
+
+    }
+  }
   saveBug() {
     if (!this.bug.title.trim()) {
       alert("Please provide bug name");
@@ -60,8 +67,9 @@ export class CreateBugComponent implements OnInit {
       alert("Bug saved...");
     },
       error => {
+        this.etaCheck();
         console.log(error);
-        alert(error.statusText);
+        alert('AN error occured, please retry.');
 
       }
     )
