@@ -18,56 +18,62 @@ export class CreateBugComponent implements OnInit {
   etaCheck() {
     if (this.bug.etaDate <= this.todayDate.toDateString()) {
       alert('ETA Should not be past date');
+      return;
 
     }
   }
+  // validateFields() {
+  //   if (!this.bug.title.trim()) {
+  //     alert("Please provide Bug Name");
+  //   }
+  //   else if (this.bug.title.length > 200) {
+  //     alert("Bug Name cannot be more than 200 character");
+  //   }
+  //   else if (!this.bug.projectId.trim()) {
+  //     alert("Please provide Project id");
+  //   }
+  //   else if (this.bug.projectId.length > 10) {
+  //     alert("Project id cannot be more than 10 characters");
+  //   }
+  //   else if (!this.bug.product.trim()) {
+  //     alert("Please provide Product Name");
+  //   }
+  //   else if (this.bug.product.length > 50) {
+  //     alert("Product Name cannot be more than 50 characters");
+  //   }
+  //   else if (!this.bug.module.trim()) {
+  //     alert("Please provide Module Name");
+  //   }
+  //   else if (this.bug.module.length > 50) {
+  //     alert("Module Name cannot be more than 50 characters");
+  //   }
+  //   else if (!this.bug.buildVersion.trim()) {
+  //     alert("Please provide Build Version");
+  //   }
+  //   else if (this.bug.buildVersion.length > 15) {
+  //     alert("Build Version cannot be more than 15 character");
+  //   }
+  //   else if (!this.bug.description.trim()) {
+  //     alert("Please provide description");
+  //   }
+  //   else if (this.bug.description.length > 1000) {
+  //     alert("Please provide description");
+  //   }
+  // }
   saveBug() {
-    if (!this.bug.title.trim()) {
-      alert("Please provide bug name");
-    }
-    else if (this.bug.title.length > 200) {
-      alert("Bug name cannot be more than 200 character");
-    }
-    else if (!this.bug.projectId.trim()) {
-      alert("Please provide project id");
-    }
-    else if (this.bug.projectId.length > 50) {
-      alert("project id cannot be more than 50 character");
-    }
-    else if (!this.bug.product.trim()) {
-      alert("Please provide product name");
-    }
-    else if (this.bug.product.length > 50) {
-      alert("product name cannot be more than 50 character");
-    }
-    else if (!this.bug.module.trim()) {
-      alert("Please provide module name");
-    }
-    else if (this.bug.module.length > 50) {
-      alert("module name cannot be more than 50 character");
-    }
-    else if (!this.bug.buildVersion.trim()) {
-      alert("Please provide build version");
-    }
-    else if (this.bug.buildVersion.length > 50) {
-      alert("build version cannot be more than 50 character");
-    }
-    else if (!this.bug.description.trim()) {
-      alert("Please provide description");
-    }
-
     let createBug = (<HTMLInputElement>document.getElementById('createBug'))
     if (!createBug.checkValidity()) {
       alert('form is invalid');
       return;
     }
+    // this.validateFields()
     const promise = this.bugService.saveBug(this.bug);
     promise.subscribe(response => {
       console.log(response);
       alert("Bug saved...");
     },
       error => {
-        this.etaCheck();
+        //this.etaCheck();
         console.log(error);
         alert('AN error occured, please retry.');
 
