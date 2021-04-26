@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BugService } from '../bug.service';
 import { Bug } from '../Bug';
 import { STATUS } from '../STATUS';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-bug',
@@ -28,22 +29,59 @@ export class GetBugComponent implements OnInit {
   //   }
   // }
   deleteBug(bugId) {
-    let ask = confirm("Really want to delete item bug ?");
-    if (!ask) {
-      return;
-    }
-    this.bugService.deleteBug(bugId).subscribe(response => {
-      this.bugList = response;
-      console.log(response);
-      alert("Bug Deleted!")
-      //this.getBugs();
-    },
-      error => {
-        console.log(error);
-        alert("Error Happened!");
+    // let ask = confirm("Really want to delete item bug ?");
+    // if (!ask) {
+    //   return;
+    // }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this imaginary file!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
 
+        Swal.fire(
+          'Deleted!',
+          'Your bug has been deleted.',
+          'success'
+        )
+        this.bugService.deleteBug(bugId).subscribe(response => {
+          this.bugList = response;
+          console.log(response);
+          alert("Bug Deleted!")
+          this.getBugs();
+        },
+          error => {
+            console.log(error);
+            alert("Error Happened!");
+
+          }
+        )
+        // For more information about handling dismissals please visit
+        // https://sweetalert2.github.io/#handling-dismissals
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Your bug is safe :)',
+          'error'
+        )
       }
-    )
+    })
+    // this.bugService.deleteBug(bugId).subscribe(response => {
+    //   this.bugList = response;
+    //   console.log(response);
+    //   alert("Bug Deleted!")
+    //   this.getBugs();
+    // },
+    //   error => {
+    //     console.log(error);
+    //     alert("Error Happened!");
+
+    //   }
+    // )
   }
   // getBug() {
   //   let bugStatus = (<HTMLInputElement>document.getElementById('bugStatus')).value;

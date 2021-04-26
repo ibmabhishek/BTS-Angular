@@ -14,7 +14,7 @@ export class BugService {
     return this.http.post('http://localhost:8080/bug', bug, {
       headers: {
         "content-type": 'application/json',
-        reponseType: 'text'
+        responseType: 'text',
       }
     });
   }
@@ -30,14 +30,6 @@ export class BugService {
     httpHeaders.append('content-type', 'application/json');
     return this.http.get(endpointURL, { headers: httpHeaders });
   }
-
-  // getBug(endpointURL) {
-
-  //   const httpHeaders = new HttpHeaders();
-  //   httpHeaders.append('content-type', 'application/json');
-  //   return this.http.get(endpointURL, { headers: httpHeaders });
-
-  // }
 
   getBugByName(title: string) {
     const endpointURL = 'http://localhost:8080/bug/'
