@@ -43,16 +43,16 @@ export class GetBugComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
 
-        Swal.fire(
-          'Deleted!',
-          'Your bug has been deleted.',
-          'success'
-        )
         this.bugService.deleteBug(bugId).subscribe(response => {
           this.bugList = response;
           console.log(response);
-          alert("Bug Deleted!")
+          //alert("Bug Deleted!")
           this.getBugs();
+          Swal.fire(
+            'Deleted!',
+            'Your bug has been deleted.',
+            'success'
+          )
         },
           error => {
             console.log(error);
@@ -62,11 +62,11 @@ export class GetBugComponent implements OnInit {
         )
 
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelled',
-          'Your bug is safe :)',
-          'error'
-        )
+        // Swal.fire(
+        //   'Cancelled',
+        //   'Your bug is safe :)',
+        //   'error'
+        // )
       }
     })
     // this.bugService.deleteBug(bugId).subscribe(response => {
