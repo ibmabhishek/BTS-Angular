@@ -75,7 +75,11 @@
 
             <tr>
               <td scope="col" style="border: 2px solid #000000;">{{(bug.title)}}</td>
-              <td scope="col" style="border: 2px solid #000000;">{{bug.description}}</td>
+              <td scope="col" style="border: 2px solid #000000;"> {{ bug.description | ellipsis: 5
+                }}<button type="button" class="btn btn-link" (click)="showDescription(this.bug.description)"
+                  style="background-color: transparent">
+                  Read More
+                </button></td>
               <td scope="col" style="border: 2px solid #000000;">{{bug.status | titlecase}}</td>
               <td scope="col" style="border: 2px solid #000000;">{{bug.priority | titlecase}}</td>
               <td scope="col" style="border: 2px solid #000000;">{{bug.type | titlecase}}</td>

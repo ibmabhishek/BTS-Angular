@@ -11,6 +11,7 @@ import { GetBugComponent } from './get-bug/get-bug.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { EllipsisPipe } from './EllipsisPipe';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }, //default, Home page
   { path: 'createBug', component: CreateBugComponent },
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     UpdateBugComponent,
     GetBugComponent,
     HomeComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    EllipsisPipe
 
   ],
   imports: [RouterModule.forRoot(

@@ -35,7 +35,7 @@ export class GetBugComponent implements OnInit {
     // }
     Swal.fire({
       title: 'Are you sure?',
-      text: 'You will not be able to recover this imaginary file!',
+      text: 'You will not be able to recover this bug!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
@@ -60,8 +60,7 @@ export class GetBugComponent implements OnInit {
 
           }
         )
-        // For more information about handling dismissals please visit
-        // https://sweetalert2.github.io/#handling-dismissals
+
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
@@ -221,6 +220,10 @@ export class GetBugComponent implements OnInit {
       }
     )
 
+  }
+
+  showDescription(description: string) {
+    Swal.fire(description);
   }
 
 
